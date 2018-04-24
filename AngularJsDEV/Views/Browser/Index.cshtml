@@ -1,0 +1,60 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="it">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>AngularJS - Browser</title>
+    <script src="~/js/jquery.js"></script>
+    <script src="~/js/angular.js"></script>
+    <script src="~/js/browser.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/css/browser.css" />
+    <style type="text/css">
+        #test_browser {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 1000px;
+            height: 400px;
+        }
+    </style>
+</head>
+<!--[if lte IE 9]>
+<body xmlns:ng="http://angularjs.org" id="ng-app">
+<![endif]-->
+<!--[if !IE]>-->
+<body>
+    <!--<![endif]-->
+    <!--[if IE]>
+    <div ng-app="aBrowser" ng-controller="cBrowser" id="test_browser" class="browser-wrapper lteIE9">
+    <![endif]-->
+    <!--[if !IE]>-->
+    <div ng-app="aBrowser" ng-controller="cBrowser" id="test_browser" class="browser-wrapper">
+        <!--<![endif]-->
+        <table class="browser">
+            <thead>
+                <tr>
+                    <th class="{{x.nome}}" ng-repeat="x in BrowserData.head">{{x.caption}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                    <tr ng-repeat="x in BrowserData.body">
+                        <td class="{{y2.Key}}" ng-repeat="(x2,y2) in x">{{y2.Value}}</td>
+                    </tr>
+                
+            </tbody>
+        </table>
+        <style type="text/css" id="BrowserStyle">
+        </style>
+    </div>
+    <script>
+        AngularInit(function () { Browserify($("#test_browser")) });
+    </script>
+</body>
+</html>

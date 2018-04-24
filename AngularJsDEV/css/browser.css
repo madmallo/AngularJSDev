@@ -1,0 +1,93 @@
+﻿.browser-wrapper {
+    overflow-y: scroll;
+}
+.browser-wrapper table {
+    width: 100%;
+    max-width: 960px;
+}
+.browser-wrapper, .browser-wrapper * {
+    box-sizing: border-box;
+    font-family: Verdana;
+    font-size: 12px;
+}
+.browser-wrapper table {
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+.browser-wrapper th {
+    position: sticky;
+    top: 0;
+    background: #444;
+    color: #EEE;
+}
+.browser-wrapper th, .browser-wrapper td {
+    padding: 2px 5px;
+    border: 1px solid #444;
+}
+.browser-wrapper tbody tr:nth-child(odd) td {
+    background: #FFF;
+}
+.browser-wrapper tbody tr:nth-child(odd):hover td {
+    background: #BBB;
+}
+.browser-wrapper tbody tr:nth-child(even) td {
+    background: #DDD;
+}
+.browser-wrapper tbody tr:nth-child(even):hover td {
+    background: #AAA;
+}
+.browser-wrapper th:hover {
+    background: #000;
+    color: #FFF;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* firefox fix */
+@-moz-document url-prefix() {
+    .browser-wrapper table {
+        display: block;
+    }
+
+    .browser-wrapper thead {
+        display: block;
+        position: sticky;
+        top: 0;
+    }
+
+    .browser-wrapper tbody {
+        display: table;
+    }
+}
+
+/* ie10+ fix */
+@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
+    .browser-wrapper {
+        overflow-y: hidden;
+    }
+    .browser-wrapper thead {
+        display: block;
+        padding-right: 17px;
+    }
+    .browser-wrapper tbody {
+        display: block;
+        overflow-y: auto;
+    }
+}
+
+/* ie9 fix */
+.browser-wrapper.lteIE9 table {
+    position: relative;
+}
+.browser-wrapper.lteIE9 thead {
+    position: fixed;
+    display: block;
+    padding-right: 17px;
+    z-index: 4;
+}
+.browser-wrapper.lteIE9 tbody {
+    position: absolute;
+    top: 20px;
+    display: block;
+    overflow-y: auto;
+}
